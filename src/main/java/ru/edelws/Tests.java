@@ -1,43 +1,50 @@
 package ru.edelws;
 
 import org.junit.After;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class Tests {
-    ChromeDriver driver = new ChromeDriver();
+
+    private WebDriver driver;
 
     @Before
     public void setUp() {
-        System.out.println("setUp");
         System.setProperty("webdriver.chrome.driver", "C:\\Users\\Pavel\\IdeaProjects\\edelws\\chromedriver.exe");
+        driver = new ChromeDriver();
+        driver.manage().window().maximize();
+        System.out.println("setUp");
     }
 
     @After
     public void cleanUp() {
         if (driver != null) {
-            System.out.println("cleanUp");
             driver.quit();
+            System.out.println("cleanUp");
         }
     }
 
-
     @Test
     public void Test1() throws InterruptedException {
-        driver.manage().window().maximize();
+
+        MainPage mainPage = new MainPage(driver);
+
         driver.get("https://edelws.ru");
         System.out.println(driver.getCurrentUrl());
-        driver.findElement(By.className("nav__link")).click();
-        //driver.findElement(By.xpath("/html/body/div[3]/div/div[2]/div/nav/ul/li[1]/div/a")).click();
+
+        System.out.println(mainPage.CONSTRUCTOR); //CONSTRUCTOR содержит null
+
+        WebElement webElement = driver.findElement(By.xpath("//a[contains(@href, '/constructor/')]"));
+        webElement.click();
+
         System.out.println(driver.getCurrentUrl());
-        driver.findElement(By.className("btn_add js-configurator-add")).click(); //не работает!
+        driver.findElement(By.xpath("//div[contains(@data-block, 45)]")).click();
         Thread.sleep(3000);
-
     }
-
 
 }
 
