@@ -3,9 +3,7 @@ package ru.edelws;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class Tests {
@@ -30,22 +28,14 @@ public class Tests {
 
     @Test
     public void Test1() throws InterruptedException {
-
         MainPage mainPage = new MainPage(driver);
-
-        driver.get("https://edelws.ru");
-        System.out.println(driver.getCurrentUrl());
-
-        System.out.println(mainPage.CONSTRUCTOR); //CONSTRUCTOR содержит null
-
-        WebElement webElement = driver.findElement(By.xpath("//a[contains(@href, '/constructor/')]"));
-        webElement.click();
-
-        System.out.println(driver.getCurrentUrl());
-        driver.findElement(By.xpath("//div[contains(@data-block, 45)]")).click();
+        mainPage.openMainPage();
+        mainPage.CONSTRUCTOR.click();
+        mainPage.BUTTON.click();
+        Thread.sleep(3000);
+        mainPage.LINK.click();
         Thread.sleep(3000);
     }
-
 }
 
 
