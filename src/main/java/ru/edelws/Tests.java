@@ -29,17 +29,16 @@ public class Tests {
     @Test
     public void Test1() throws InterruptedException {
         MainPage mainPage = new MainPage(driver);
+        ConstructorPage constructor = new ConstructorPage(driver);
         mainPage.openMainPage();
         mainPage.CONSTRUCTOR.click();
-        mainPage.BUTTON.click();
+        constructor.BUTTON_SELECT.click();
         Thread.sleep(3000);
-        mainPage.LINK.click();
+        constructor.LINK.click();
+        Thread.sleep(3000);
+        constructor.LINK_CLOSE.click();
+        Thread.sleep(3000);
+        constructor.BUTTON_ADD.click();
         Thread.sleep(3000);
     }
 }
-
-
-
-
-
-
