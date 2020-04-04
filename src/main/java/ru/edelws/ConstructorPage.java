@@ -11,19 +11,14 @@ public class ConstructorPage extends BasePageFactory {
     }
 
     @FindBy(xpath = "//div[contains(@data-block, 45)]")
-    WebElement BUTTON_SELECT;
+    WebElement BUTTON_ADD_PROCESSOR;
 
-    @FindBy(xpath = "//a[@data-techid = '313398']")
-    WebElement LINK;
+    @FindBy(xpath = "/html/body/div[4]/div[3]/div/div/div/div[1]/div[1]/div[4]/div[2]/div[2]/ul/li[1]/div/div[2]/a[1]")
+    WebElement BUTTON_ADD_PROCESSOR_MODEL;
 
-    @FindBy(xpath = "//*[contains(@class, 'close_detail new_sprite new_sprite-big_close')]")
-    WebElement LINK_CLOSE;
+    @FindBy(xpath = "/html/body/div[4]/div[2]/div/div[2]/div/div/div[1]/div[1]/div/div/div[2]/div/a")
+    WebElement BUTTON_ADD_TO_CART;
 
-    @FindBy(xpath = "//*[contains(@data-product, '313398')]")
-    WebElement BUTTON_ADD;
-
-    public void openConstructor() {
-        driver.get("https://edelws.ru/constructor/");
-        System.out.println(driver.getCurrentUrl());
-    }
+    @FindBy(xpath = "/html/body/div[19]/div/div/div/div/div/div[1]/h2")
+    WebElement MESSAGE;
 }
