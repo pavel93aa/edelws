@@ -12,7 +12,7 @@ public class Test1 {
 
     @Before
     public void setUp() {
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\Pavel\\IdeaProjects\\edelws\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "C:\\Users\\Pavel\\IdeaProjects\\edelws\\chromedriver_83.0.4103.39.exe");
         driver = new ChromeDriver();
         driver.manage().window().maximize();
     }
